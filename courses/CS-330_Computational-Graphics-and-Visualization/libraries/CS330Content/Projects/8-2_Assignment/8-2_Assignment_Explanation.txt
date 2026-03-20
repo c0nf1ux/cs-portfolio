@@ -1,0 +1,9 @@
+8-2 Assignment: 2D Animation Enhancements - Code Explanation
+
+For this assignment, I enhanced the 2D animation with two major features: multi-hit destructible bricks and circle-to-circle collision merging.
+
+For the brick system, I implemented a health-based damage model where destructible bricks require three hits before being destroyed. I added health tracking variables to the Brick class and created a TakeDamage() method that decrements health and updates the brick's color. The color progression starts with green, transitions to yellow after the first hit, changes to orange after the second hit, and finally disappears after the third hit, creating an engaging visual progression.
+
+For circle-to-circle collisions, I implemented a merging system using distance-based collision detection. The IsCollidingWith() method calculates the distance between circle centers and determines collision when this distance is less than the sum of their radii. When circles collide, the MergeWith() method combines them by positioning the merged circle at their midpoint, calculating a new radius that preserves the combined area, and blending their RGB colors by averaging.
+
+The code follows best practices with clear modular functions, comprehensive comments, and consistent formatting with proper indentation and spacing throughout.
