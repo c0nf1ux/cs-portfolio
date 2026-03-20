@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DriverPass Project Gantt Chart</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 40px; background: white; }
+    h2 { color: #1f2937; margin-bottom: 24px; }
+    .header { display: flex; margin-bottom: 16px; font-weight: bold; font-size: 14px; }
+    .task-row { display: flex; margin-bottom: 8px; align-items: center; }
+    .col-name { width: 260px; font-size: 14px; }
+    .col-start { width: 130px; text-align: center; font-size: 14px; }
+    .col-end { width: 130px; text-align: center; font-size: 14px; }
+    .col-days { width: 80px; text-align: center; font-size: 14px; }
+    .col-timeline { flex: 1; margin-left: 16px; position: relative; height: 32px; }
+    .timeline-bg { position: absolute; bottom: 0; left: 0; right: 0; border-bottom: 1px solid #e5e7eb; }
+    .timeline-bar { position: absolute; height: 24px; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; font-weight: 500; }
+    .summary { margin-top: 32px; padding: 16px; background: #eff6ff; border-radius: 8px; }
+    .summary h3 { font-size: 14px; margin-bottom: 8px; }
+    .summary p { font-size: 14px; margin: 4px 0; }
+    .scale { display: flex; justify-content: space-between; margin-top: 24px; margin-left: 600px; font-size: 12px; color: #6b7280; }
+  </style>
+</head>
+<body>
+  <h2>DriverPass Project Gantt Chart</h2>
+  
+  <div class="header">
+    <div class="col-name">Task Name</div>
+    <div class="col-start">Start</div>
+    <div class="col-end">End</div>
+    <div class="col-days">Days</div>
+    <div class="col-timeline">Timeline</div>
+  </div>
+  
+  
+    <div class="task-row">
+      <div class="col-name">Collect Requirements</div>
+      <div class="col-start">1/22</div>
+      <div class="col-end">2/4</div>
+      <div class="col-days">14</div>
+      <div class="col-timeline">
+        <div class="timeline-bg"></div>
+        <div class="timeline-bar" style="left: 0%; width: 12.727272727272727%; background-color: #3b82f6; min-width: 60px;">
+          14d
+        </div>
+      </div>
+    </div>
+  
+    <div class="task-row">
+      <div class="col-name">Create Use Case Diagrams</div>
+      <div class="col-start">2/11</div>
+      <div class="col-end">2/18</div>
+      <div class="col-days">8</div>
+      <div class="col-timeline">
+        <div class="timeline-bg"></div>
+        <div class="timeline-bar" style="left: 18.181818181818183%; width: 7.2727272727272725%; background-color: #10b981; min-width: 60px;">
+          8d
+        </div>
+      </div>
+    </div>
+  
+    <div class="task-row">
+      <div class="col-name">Build Activity Diagrams</div>
+      <div class="col-start">2/15</div>
+      <div class="col-end">3/9</div>
+      <div class="col-days">22</div>
+      <div class="col-timeline">
+        <div class="timeline-bg"></div>
+        <div class="timeline-bar" style="left: 21.818181818181817%; width: 20%; background-color: #8b5cf6; min-width: 60px;">
+          22d
+        </div>
+      </div>
+    </div>
+  
+    <div class="task-row">
+      <div class="col-name">Research UI Designs</div>
+      <div class="col-start">2/27</div>
+      <div class="col-end">3/7</div>
+      <div class="col-days">9</div>
+      <div class="col-timeline">
+        <div class="timeline-bg"></div>
+        <div class="timeline-bar" style="left: 32.72727272727273%; width: 8.181818181818182%; background-color: #f59e0b; min-width: 60px;">
+          9d
+        </div>
+      </div>
+    </div>
+  
+    <div class="task-row">
+      <div class="col-name">Build Class Diagram</div>
+      <div class="col-start">3/1</div>
+      <div class="col-end">3/9</div>
+      <div class="col-days">9</div>
+      <div class="col-timeline">
+        <div class="timeline-bg"></div>
+        <div class="timeline-bar" style="left: 34.54545454545455%; width: 8.181818181818182%; background-color: #ec4899; min-width: 60px;">
+          9d
+        </div>
+      </div>
+    </div>
+  
+    <div class="task-row">
+      <div class="col-name">Get Customer Approval</div>
+      <div class="col-start">3/10</div>
+      <div class="col-end">3/11</div>
+      <div class="col-days">2</div>
+      <div class="col-timeline">
+        <div class="timeline-bg"></div>
+        <div class="timeline-bar" style="left: 42.72727272727273%; width: 1.8181818181818181%; background-color: #14b8a6; min-width: 60px;">
+          2d
+        </div>
+      </div>
+    </div>
+  
+    <div class="task-row">
+      <div class="col-name">Build Interface</div>
+      <div class="col-start">3/12</div>
+      <div class="col-end">3/24</div>
+      <div class="col-days">12</div>
+      <div class="col-timeline">
+        <div class="timeline-bg"></div>
+        <div class="timeline-bar" style="left: 44.54545454545455%; width: 10.909090909090908%; background-color: #6366f1; min-width: 60px;">
+          12d
+        </div>
+      </div>
+    </div>
+  
+    <div class="task-row">
+      <div class="col-name">Link DB to Interface</div>
+      <div class="col-start">3/24</div>
+      <div class="col-end">4/3</div>
+      <div class="col-days">9</div>
+      <div class="col-timeline">
+        <div class="timeline-bg"></div>
+        <div class="timeline-bar" style="left: 55.45454545454545%; width: 8.181818181818182%; background-color: #84cc16; min-width: 60px;">
+          9d
+        </div>
+      </div>
+    </div>
+  
+    <div class="task-row">
+      <div class="col-name">Build Business Logic</div>
+      <div class="col-start">4/5</div>
+      <div class="col-end">4/27</div>
+      <div class="col-days">22</div>
+      <div class="col-timeline">
+        <div class="timeline-bg"></div>
+        <div class="timeline-bar" style="left: 66.36363636363637%; width: 20%; background-color: #f97316; min-width: 60px;">
+          22d
+        </div>
+      </div>
+    </div>
+  
+    <div class="task-row">
+      <div class="col-name">Test System</div>
+      <div class="col-start">4/27</div>
+      <div class="col-end">5/7</div>
+      <div class="col-days">10</div>
+      <div class="col-timeline">
+        <div class="timeline-bg"></div>
+        <div class="timeline-bar" style="left: 86.36363636363636%; width: 9.090909090909092%; background-color: #06b6d4; min-width: 60px;">
+          10d
+        </div>
+      </div>
+    </div>
+  
+    <div class="task-row">
+      <div class="col-name">Deliver System</div>
+      <div class="col-start">5/8</div>
+      <div class="col-end">5/9</div>
+      <div class="col-days">2</div>
+      <div class="col-timeline">
+        <div class="timeline-bg"></div>
+        <div class="timeline-bar" style="left: 95.45454545454545%; width: 1.8181818181818181%; background-color: #a855f7; min-width: 60px;">
+          2d
+        </div>
+      </div>
+    </div>
+  
+    <div class="task-row">
+      <div class="col-name">Sign-off Meeting</div>
+      <div class="col-start">5/9</div>
+      <div class="col-end">5/10</div>
+      <div class="col-days">2</div>
+      <div class="col-timeline">
+        <div class="timeline-bg"></div>
+        <div class="timeline-bar" style="left: 97.27272727272728%; width: 1.8181818181818181%; background-color: #ef4444; min-width: 60px;">
+          2d
+        </div>
+      </div>
+    </div>
+  
+  
+  <div class="scale">
+    <span>Jan 22</span>
+    <span>Feb</span>
+    <span>Mar</span>
+    <span>Apr</span>
+    <span>May 10</span>
+  </div>
+  
+  <div class="summary">
+    <h3>Project Summary</h3>
+    <p>• Total Duration: 109 days (Jan 22 - May 10)</p>
+    <p>• Critical Path: Requirements → Use Cases → Activity Diagrams → Approval → Interface → DB → Business Logic → Testing → Delivery</p>
+    <p>• Parallel Tasks: UI Research, Class Diagram, and Activity Diagrams run concurrently</p>
+  </div>
+</body>
+</html>
