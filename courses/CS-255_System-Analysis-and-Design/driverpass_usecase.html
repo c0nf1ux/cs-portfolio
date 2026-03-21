@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriverPass UML Use Case Diagram</title>
+    <style>
+        @media print {
+            body {
+                margin: 0;
+                padding: 10px;
+            }
+            .diagram-container {
+                box-shadow: none;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: white;
+            margin: 0;
+        }
+        .diagram-container {
+            background: white;
+            padding: 30px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 24px;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        svg {
+            width: 100%;
+            height: auto;
+            border: 2px solid #333;
+        }
+        .actor {
+            fill: none;
+            stroke: #000;
+            stroke-width: 2;
+        }
+        .usecase {
+            fill: #e8f4f8;
+            stroke: #2c3e50;
+            stroke-width: 2;
+        }
+        .system-boundary {
+            fill: none;
+            stroke: #2c3e50;
+            stroke-width: 3;
+            stroke-dasharray: 5,5;
+        }
+        .association {
+            stroke: #000;
+            stroke-width: 1.5;
+            fill: none;
+        }
+        .include-extend {
+            stroke: #666;
+            stroke-width: 1.5;
+            fill: none;
+            stroke-dasharray: 5,3;
+        }
+        .label {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            fill: #000;
+            font-weight: 500;
+        }
+        .label-small {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            fill: #666;
+            font-style: italic;
+            font-weight: 500;
+        }
+        .actor-label {
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            fill: #000;
+            font-weight: bold;
+        }
+        .system-label {
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            fill: #2c3e50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="diagram-container">
+        <h1>DriverPass System UML Use Case Diagram</h1>
+        <p class="subtitle">System Analysis and Design - CS 255</p>
+        
+        <svg viewBox="0 0 1400 1100" xmlns="http://www.w3.org/2000/svg">
+            <!-- System Boundary -->
+            <rect x="200" y="80" width="1000" height="960" class="system-boundary" rx="10"/>
+            <text x="650" y="60" class="system-label" text-anchor="middle">DriverPass System</text>
+            
+            <!-- Left Side Actors -->
+            <!-- Customer -->
+            <circle cx="100" cy="200" r="20" class="actor"/>
+            <line x1="100" y1="220" x2="100" y2="270" class="actor"/>
+            <line x1="100" y1="240" x2="70" y2="260" class="actor"/>
+            <line x1="100" y1="240" x2="130" y2="260" class="actor"/>
+            <line x1="100" y1="270" x2="70" y2="300" class="actor"/>
+            <line x1="100" y1="270" x2="130" y2="300" class="actor"/>
+            <text x="100" y="320" class="actor-label" text-anchor="middle">Customer</text>
+            
+            <!-- Secretary -->
+            <circle cx="100" cy="420" r="20" class="actor"/>
+            <line x1="100" y1="440" x2="100" y2="490" class="actor"/>
+            <line x1="100" y1="460" x2="70" y2="480" class="actor"/>
+            <line x1="100" y1="460" x2="130" y2="480" class="actor"/>
+            <line x1="100" y1="490" x2="70" y2="520" class="actor"/>
+            <line x1="100" y1="490" x2="130" y2="520" class="actor"/>
+            <text x="100" y="540" class="actor-label" text-anchor="middle">Secretary</text>
+            
+            <!-- Driver -->
+            <circle cx="100" cy="640" r="20" class="actor"/>
+            <line x1="100" y1="660" x2="100" y2="710" class="actor"/>
+            <line x1="100" y1="680" x2="70" y2="700" class="actor"/>
+            <line x1="100" y1="680" x2="130" y2="700" class="actor"/>
+            <line x1="100" y1="710" x2="70" y2="740" class="actor"/>
+            <line x1="100" y1="710" x2="130" y2="740" class="actor"/>
+            <text x="100" y="760" class="actor-label" text-anchor="middle">Driver</text>
+            
+            <!-- IT Officer -->
+            <circle cx="100" cy="860" r="20" class="actor"/>
+            <line x1="100" y1="880" x2="100" y2="930" class="actor"/>
+            <line x1="100" y1="900" x2="70" y2="920" class="actor"/>
+            <line x1="100" y1="900" x2="130" y2="920" class="actor"/>
+            <line x1="100" y1="930" x2="70" y2="960" class="actor"/>
+            <line x1="100" y1="930" x2="130" y2="960" class="actor"/>
+            <text x="100" y="980" class="actor-label" text-anchor="middle">IT Officer</text>
+            
+            <!-- Right Side Actors -->
+            <!-- Owner -->
+            <circle cx="1300" cy="300" r="20" class="actor"/>
+            <line x1="1300" y1="320" x2="1300" y2="370" class="actor"/>
+            <line x1="1300" y1="340" x2="1270" y2="360" class="actor"/>
+            <line x1="1300" y1="340" x2="1330" y2="360" class="actor"/>
+            <line x1="1300" y1="370" x2="1270" y2="400" class="actor"/>
+            <line x1="1300" y1="370" x2="1330" y2="400" class="actor"/>
+            <text x="1300" y="420" class="actor-label" text-anchor="middle">Owner</text>
+            
+            <!-- DMV System -->
+            <circle cx="1300" cy="800" r="20" class="actor"/>
+            <line x1="1300" y1="820" x2="1300" y2="870" class="actor"/>
+            <line x1="1300" y1="840" x2="1270" y2="860" class="actor"/>
+            <line x1="1300" y1="840" x2="1330" y2="860" class="actor"/>
+            <line x1="1300" y1="870" x2="1270" y2="900" class="actor"/>
+            <line x1="1300" y1="870" x2="1330" y2="900" class="actor"/>
+            <text x="1300" y="920" class="actor-label" text-anchor="middle">DMV System</text>
+            
+            <!-- Use Cases - Column 1 (Left) -->
+            <!-- Register Account -->
+            <ellipse cx="350" cy="140" rx="90" ry="35" class="usecase"/>
+            <text x="350" y="145" class="label" text-anchor="middle">Register Account</text>
+            
+            <!-- Login to System -->
+            <ellipse cx="350" cy="220" rx="90" ry="35" class="usecase"/>
+            <text x="350" y="225" class="label" text-anchor="middle">Login to System</text>
+            
+            <!-- Select Training Package -->
+            <ellipse cx="350" cy="300" rx="90" ry="35" class="usecase"/>
+            <text x="350" y="298" class="label" text-anchor="middle">Select Training</text>
+            <text x="350" y="310" class="label" text-anchor="middle">Package</text>
+            
+            <!-- Schedule Appointment -->
+            <ellipse cx="350" cy="380" rx="90" ry="35" class="usecase"/>
+            <text x="350" y="378" class="label" text-anchor="middle">Schedule</text>
+            <text x="350" y="390" class="label" text-anchor="middle">Appointment</text>
+            
+            <!-- Modify Appointment -->
+            <ellipse cx="350" cy="460" rx="90" ry="35" class="usecase"/>
+            <text x="350" y="458" class="label" text-anchor="middle">Modify</text>
+            <text x="350" y="470" class="label" text-anchor="middle">Appointment</text>
+            
+            <!-- Cancel Appointment -->
+            <ellipse cx="350" cy="540" rx="90" ry="35" class="usecase"/>
+            <text x="350" y="538" class="label" text-anchor="middle">Cancel</text>
+            <text x="350" y="550" class="label" text-anchor="middle">Appointment</text>
+            
+            <!-- Use Cases - Column 2 (Center-Left) -->
+            <!-- Take Online Practice Test -->
+            <ellipse cx="550" cy="140" rx="90" ry="35" class="usecase"/>
+            <text x="550" y="138" class="label" text-anchor="middle">Take Online</text>
+            <text x="550" y="150" class="label" text-anchor="middle">Practice Test</text>
+            
+            <!-- View Test Progress -->
+            <ellipse cx="550" cy="220" rx="90" ry="35" class="usecase"/>
+            <text x="550" y="218" class="label" text-anchor="middle">View Test</text>
+            <text x="550" y="230" class="label" text-anchor="middle">Progress</text>
+            
+            <!-- View Lesson History -->
+            <ellipse cx="550" cy="300" rx="90" ry="35" class="usecase"/>
+            <text x="550" y="298" class="label" text-anchor="middle">View Lesson</text>
+            <text x="550" y="310" class="label" text-anchor="middle">History</text>
+            
+            <!-- Process Payment -->
+            <ellipse cx="550" cy="380" rx="90" ry="35" class="usecase"/>
+            <text x="550" y="385" class="label" text-anchor="middle">Process Payment</text>
+            
+            <!-- Make Reservation by Phone -->
+            <ellipse cx="550" cy="460" rx="90" ry="35" class="usecase"/>
+            <text x="550" y="458" class="label" text-anchor="middle">Make Reservation</text>
+            <text x="550" y="470" class="label" text-anchor="middle">by Phone</text>
+            
+            <!-- Record Driver Notes -->
+            <ellipse cx="550" cy="540" rx="90" ry="35" class="usecase"/>
+            <text x="550" y="538" class="label" text-anchor="middle">Record Driver</text>
+            <text x="550" y="550" class="label" text-anchor="middle">Notes</text>
+            
+            <!-- Use Cases - Column 3 (Center-Right) -->
+            <!-- Generate Activity Reports -->
+            <ellipse cx="750" cy="220" rx="90" ry="35" class="usecase"/>
+            <text x="750" y="218" class="label" text-anchor="middle">Generate Activity</text>
+            <text x="750" y="230" class="label" text-anchor="middle">Reports</text>
+            
+            <!-- Manage User Accounts -->
+            <ellipse cx="750" cy="300" rx="90" ry="35" class="usecase"/>
+            <text x="750" y="298" class="label" text-anchor="middle">Manage User</text>
+            <text x="750" y="310" class="label" text-anchor="middle">Accounts</text>
+            
+            <!-- Reset Password -->
+            <ellipse cx="750" cy="380" rx="90" ry="35" class="usecase"/>
+            <text x="750" y="385" class="label" text-anchor="middle">Reset Password</text>
+            
+            <!-- Enable/Disable Packages -->
+            <ellipse cx="750" cy="460" rx="90" ry="35" class="usecase"/>
+            <text x="750" y="458" class="label" text-anchor="middle">Enable/Disable</text>
+            <text x="750" y="470" class="label" text-anchor="middle">Packages</text>
+            
+            <!-- Export Reports -->
+            <ellipse cx="750" cy="540" rx="90" ry="35" class="usecase"/>
+            <text x="750" y="545" class="label" text-anchor="middle">Export Reports</text>
+            
+            <!-- Use Cases - Column 4 (Right) -->
+            <!-- Update System Content -->
+            <ellipse cx="950" cy="300" rx="90" ry="35" class="usecase"/>
+            <text x="950" y="298" class="label" text-anchor="middle">Update System</text>
+            <text x="950" y="310" class="label" text-anchor="middle">Content</text>
+            
+            <!-- Receive DMV Updates -->
+            <ellipse cx="950" cy="380" rx="90" ry="35" class="usecase"/>
+            <text x="950" y="378" class="label" text-anchor="middle">Receive DMV</text>
+            <text x="950" y="390" class="label" text-anchor="middle">Updates</text>
+            
+            <!-- Authenticate User -->
+            <ellipse cx="950" cy="460" rx="90" ry="35" class="usecase"/>
+            <text x="950" y="465" class="label" text-anchor="middle">Authenticate User</text>
+            
+            <!-- Track Activity Log -->
+            <ellipse cx="950" cy="540" rx="90" ry="35" class="usecase"/>
+            <text x="950" y="538" class="label" text-anchor="middle">Track Activity</text>
+            <text x="950" y="550" class="label" text-anchor="middle">Log</text>
+            
+            <!-- Associations from Customer -->
+            <line x1="130" y1="240" x2="260" y2="145" class="association"/>
+            <line x1="130" y1="250" x2="260" y2="220" class="association"/>
+            <line x1="130" y1="260" x2="260" y2="300" class="association"/>
+            <line x1="130" y1="270" x2="260" y2="380" class="association"/>
+            <line x1="130" y1="280" x2="260" y2="460" class="association"/>
+            <line x1="130" y1="290" x2="260" y2="540" class="association"/>
+            <line x1="140" y1="250" x2="460" y2="145" class="association"/>
+            <line x1="140" y1="260" x2="460" y2="220" class="association"/>
+            <line x1="140" y1="270" x2="460" y2="300" class="association"/>
+            
+            <!-- Associations from Secretary -->
+            <line x1="130" y1="460" x2="260" y2="145" class="association"/>
+            <line x1="130" y1="470" x2="260" y2="380" class="association"/>
+            <line x1="130" y1="480" x2="260" y2="460" class="association"/>
+            <line x1="130" y1="490" x2="260" y2="540" class="association"/>
+            <line x1="140" y1="470" x2="460" y2="460" class="association"/>
+            <line x1="140" y1="480" x2="460" y2="380" class="association"/>
+            
+            <!-- Associations from Driver -->
+            <line x1="130" y1="680" x2="260" y2="220" class="association"/>
+            <line x1="140" y1="680" x2="460" y2="300" class="association"/>
+            <line x1="140" y1="690" x2="460" y2="540" class="association"/>
+            
+            <!-- Associations from IT Officer -->
+            <line x1="130" y1="900" x2="660" y2="300" class="association"/>
+            <line x1="130" y1="910" x2="660" y2="380" class="association"/>
+            <line x1="140" y1="900" x2="860" y2="300" class="association"/>
+            
+            <!-- Associations from Owner -->
+            <line x1="1270" y1="340" x2="840" y2="220" class="association"/>
+            <line x1="1270" y1="350" x2="840" y2="460" class="association"/>
+            <line x1="1270" y1="360" x2="840" y2="540" class="association"/>
+            
+            <!-- Associations from DMV System -->
+            <line x1="1270" y1="840" x2="1040" y2="380" class="association"/>
+            
+            <!-- Include/Extend Relationships -->
+            <!-- Login includes Authenticate -->
+            <line x1="440" y1="220" x2="860" y2="460" class="include-extend" marker-end="url(#arrowhead)"/>
+            <text x="650" y="330" class="label-small">include</text>
+            
+            <!-- Reset Password extends Login -->
+            <line x1="660" y1="380" x2="440" y2="220" class="include-extend" marker-end="url(#arrowhead)"/>
+            <text x="540" y="290" class="label-small">extend</text>
+            
+            <!-- Schedule includes Process Payment -->
+            <line x1="440" y1="380" x2="460" y2="380" class="include-extend" marker-end="url(#arrowhead)"/>
+            <text x="450" y="370" class="label-small">include</text>
+            
+            <!-- Activities include Track Log -->
+            <line x1="840" y1="220" x2="860" y2="540" class="include-extend" marker-end="url(#arrowhead)"/>
+            <text x="855" y="370" class="label-small">include</text>
+            
+            <!-- Arrow marker definition -->
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#666"/>
+                </marker>
+            </defs>
+        </svg>
+        
+        <div style="margin-top: 30px; padding: 20px; background: #f9f9f9; border: 1px solid #ddd;">
+            <h3 style="margin-top: 0; color: #333;">Diagram Legend</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div>
+                    <strong>Actors (Outside System Boundary):</strong>
+                    <ul style="margin: 5px 0;">
+                        <li>Customer - Primary system user</li>
+                        <li>Secretary - Administrative staff</li>
+                        <li>Driver - Training instructor</li>
+                        <li>IT Officer - System administrator</li>
+                        <li>Owner - Business owner</li>
+                        <li>DMV System - External system</li>
+                    </ul>
+                </div>
+                <div>
+                    <strong>Relationship Types:</strong>
+                    <ul style="margin: 5px 0;">
+                        <li>Solid lines - Association between actor and use case</li>
+                        <li>Dashed lines with "include" - Required functionality</li>
+                        <li>Dashed lines with "extend" - Optional functionality</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

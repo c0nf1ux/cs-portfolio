@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UML Activity Diagram - Schedule Appointment</title>
+    <style>
+        @media print {
+            body {
+                margin: 0;
+                padding: 10px;
+            }
+            .diagram-container {
+                box-shadow: none;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: white;
+            margin: 0;
+        }
+        .diagram-container {
+            background: white;
+            padding: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 24px;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        svg {
+            width: 100%;
+            height: auto;
+            border: 2px solid #333;
+        }
+        .action {
+            fill: #e8f4f8;
+            stroke: #2c3e50;
+            stroke-width: 2;
+        }
+        .decision {
+            fill: #fff9e6;
+            stroke: #2c3e50;
+            stroke-width: 2;
+        }
+        .start-end {
+            fill: #2c3e50;
+            stroke: #2c3e50;
+            stroke-width: 2;
+        }
+        .flow-arrow {
+            stroke: #000;
+            stroke-width: 2;
+            fill: none;
+            marker-end: url(#arrowhead);
+        }
+        .label {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            fill: #000;
+            font-weight: 500;
+            text-anchor: middle;
+        }
+        .label-small {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            fill: #000;
+            text-anchor: middle;
+        }
+        .decision-label {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            fill: #000;
+            font-weight: 500;
+            text-anchor: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="diagram-container">
+        <h1>UML Activity Diagram: Schedule Appointment Use Case</h1>
+        <p class="subtitle">DriverPass System - CS 255 System Analysis and Design</p>
+        
+        <svg viewBox="0 0 800 1600" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#000"/>
+                </marker>
+            </defs>
+            
+            <!-- Start node -->
+            <circle cx="400" cy="50" r="20" class="start-end"/>
+            <text x="400" y="90" class="label">Start</text>
+            
+            <!-- User Login -->
+            <rect x="300" y="110" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="145" class="label">User Login</text>
+            
+            <!-- Authenticate User -->
+            <rect x="300" y="200" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="235" class="label">Authenticate User</text>
+            
+            <!-- Decision: Valid Credentials? -->
+            <polygon points="400,290 500,340 400,390 300,340" class="decision"/>
+            <text x="400" y="338" class="decision-label">Valid</text>
+            <text x="400" y="352" class="decision-label">Credentials?</text>
+            
+            <!-- Flow from Start to Login -->
+            <line x1="400" y1="70" x2="400" y2="110" class="flow-arrow"/>
+            
+            <!-- Flow from Login to Authenticate -->
+            <line x1="400" y1="170" x2="400" y2="200" class="flow-arrow"/>
+            
+            <!-- Flow from Authenticate to Decision -->
+            <line x1="400" y1="260" x2="400" y2="290" class="flow-arrow"/>
+            
+            <!-- No path - Display Error -->
+            <line x1="300" y1="340" x2="150" y2="340" class="flow-arrow"/>
+            <text x="220" y="330" class="label-small">No</text>
+            
+            <rect x="50" y="310" width="200" height="60" rx="30" class="action"/>
+            <text x="150" y="345" class="label">Display Error Message</text>
+            
+            <!-- Loop back to Login -->
+            <line x1="150" y1="310" x2="150" y2="140" class="flow-arrow"/>
+            <line x1="150" y1="140" x2="300" y2="140" class="flow-arrow"/>
+            
+            <!-- Yes path - Retrieve Available Times -->
+            <line x1="500" y1="340" x2="600" y2="340" class="flow-arrow"/>
+            <text x="550" y="330" class="label-small">Yes</text>
+            <line x1="600" y1="340" x2="600" y2="470" class="flow-arrow"/>
+            <line x1="600" y1="470" x2="500" y2="470" class="flow-arrow"/>
+            
+            <!-- Retrieve Available Times -->
+            <rect x="300" y="440" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="463" class="label">Retrieve Available</text>
+            <text x="400" y="478" class="label">Appointment Times</text>
+            
+            <!-- Display Available Options -->
+            <rect x="300" y="530" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="553" class="label">Display Driver, Vehicle,</text>
+            <text x="400" y="568" class="label">and Time Options</text>
+            
+            <!-- Flow from Retrieve to Display -->
+            <line x1="400" y1="500" x2="400" y2="530" class="flow-arrow"/>
+            
+            <!-- User Selects Preferences -->
+            <rect x="300" y="620" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="643" class="label">User Selects Date, Time,</text>
+            <text x="400" y="658" class="label">Driver, and Vehicle</text>
+            
+            <!-- Flow from Display to Select -->
+            <line x1="400" y1="590" x2="400" y2="620" class="flow-arrow"/>
+            
+            <!-- Validate Selection -->
+            <rect x="300" y="710" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="733" class="label">Validate No</text>
+            <text x="400" y="748" class="label">Scheduling Conflicts</text>
+            
+            <!-- Flow from Select to Validate -->
+            <line x1="400" y1="680" x2="400" y2="710" class="flow-arrow"/>
+            
+            <!-- Decision: Conflict Exists? -->
+            <polygon points="400,800 500,850 400,900 300,850" class="decision"/>
+            <text x="400" y="848" class="decision-label">Conflict</text>
+            <text x="400" y="862" class="decision-label">Exists?</text>
+            
+            <!-- Flow from Validate to Conflict Decision -->
+            <line x1="400" y1="770" x2="400" y2="800" class="flow-arrow"/>
+            
+            <!-- Yes path - Show Conflict Message -->
+            <line x1="300" y1="850" x2="200" y2="850" class="flow-arrow"/>
+            <text x="245" y="840" class="label-small">Yes</text>
+            
+            <rect x="100" y="820" width="200" height="60" rx="30" class="action"/>
+            <text x="200" y="843" class="label">Display Conflict</text>
+            <text x="200" y="858" class="label">Message</text>
+            
+            <!-- Loop back to Display Options -->
+            <line x1="200" y1="820" x2="200" y2="560" class="flow-arrow"/>
+            <line x1="200" y1="560" x2="300" y2="560" class="flow-arrow"/>
+            
+            <!-- No path - Process Payment -->
+            <line x1="500" y1="850" x2="600" y2="850" class="flow-arrow"/>
+            <text x="550" y="840" class="label-small">No</text>
+            <line x1="600" y1="850" x2="600" y2="980" class="flow-arrow"/>
+            <line x1="600" y1="980" x2="500" y2="980" class="flow-arrow"/>
+            
+            <!-- Enter Payment Information -->
+            <rect x="300" y="950" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="973" class="label">Enter Payment</text>
+            <text x="400" y="988" class="label">Information</text>
+            
+            <!-- Process Payment -->
+            <rect x="300" y="1040" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="1075" class="label">Process Payment</text>
+            
+            <!-- Flow from Enter to Process -->
+            <line x1="400" y1="1010" x2="400" y2="1040" class="flow-arrow"/>
+            
+            <!-- Decision: Payment Successful? -->
+            <polygon points="400,1130 500,1180 400,1230 300,1180" class="decision"/>
+            <text x="400" y="1178" class="decision-label">Payment</text>
+            <text x="400" y="1192" class="decision-label">Successful?</text>
+            
+            <!-- Flow from Process to Payment Decision -->
+            <line x1="400" y1="1100" x2="400" y2="1130" class="flow-arrow"/>
+            
+            <!-- No path - Payment Failed -->
+            <line x1="300" y1="1180" x2="150" y2="1180" class="flow-arrow"/>
+            <text x="220" y="1170" class="label-small">No</text>
+            
+            <rect x="50" y="1150" width="200" height="60" rx="30" class="action"/>
+            <text x="150" y="1173" class="label">Display Payment</text>
+            <text x="150" y="1188" class="label">Error</text>
+            
+            <!-- Loop back to Enter Payment -->
+            <line x1="150" y1="1150" x2="150" y2="980" class="flow-arrow"/>
+            <line x1="150" y1="980" x2="300" y2="980" class="flow-arrow"/>
+            
+            <!-- Yes path - Create Appointment -->
+            <line x1="500" y1="1180" x2="550" y2="1180" class="flow-arrow"/>
+            <text x="525" y="1170" class="label-small">Yes</text>
+            <line x1="550" y1="1180" x2="550" y2="1290" class="flow-arrow"/>
+            <line x1="550" y1="1290" x2="500" y2="1290" class="flow-arrow"/>
+            
+            <!-- Create Appointment Record -->
+            <rect x="300" y="1260" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="1283" class="label">Create Appointment</text>
+            <text x="400" y="1298" class="label">and Assign Resources</text>
+            
+            <!-- Send Confirmations -->
+            <rect x="300" y="1350" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="1373" class="label">Send Confirmation to</text>
+            <text x="400" y="1388" class="label">Customer and Driver</text>
+            
+            <!-- Flow from Create to Send -->
+            <line x1="400" y1="1320" x2="400" y2="1350" class="flow-arrow"/>
+            
+            <!-- Flow to End -->
+            <line x1="400" y1="1410" x2="400" y2="1490" class="flow-arrow"/>
+            
+            <!-- End node -->
+            <circle cx="400" cy="1510" r="20" class="start-end"/>
+            <circle cx="400" cy="1510" r="15" fill="white"/>
+            <text x="400" y="1550" class="label">End</text>
+        </svg>
+        
+        <div style="margin-top: 30px; padding: 20px; background: #f9f9f9; border: 1px solid #ddd;">
+            <h3 style="margin-top: 0; color: #333;">Activity Diagram Description</h3>
+            <p style="line-height: 1.6; margin: 0;">
+                This activity diagram illustrates the complete workflow for scheduling a driving lesson appointment in the DriverPass system. The process includes user authentication, retrieving and displaying available appointment options, validating selections for scheduling conflicts, processing payment, creating the appointment record, and sending confirmations to both the customer and assigned driver. Error handling paths ensure users receive appropriate feedback when authentication fails, scheduling conflicts exist, or payment processing encounters issues.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

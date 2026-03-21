@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UML Sequence Diagram - Schedule Appointment</title>
+    <style>
+        @media print {
+            body {
+                margin: 0;
+                padding: 10px;
+            }
+            .diagram-container {
+                box-shadow: none;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: white;
+            margin: 0;
+        }
+        .diagram-container {
+            background: white;
+            padding: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 24px;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        svg {
+            width: 100%;
+            height: auto;
+            border: 2px solid #333;
+        }
+        .lifeline {
+            stroke: #2c3e50;
+            stroke-width: 2;
+            fill: #e8f4f8;
+        }
+        .lifeline-dashed {
+            stroke: #666;
+            stroke-width: 1;
+            stroke-dasharray: 5,5;
+            fill: none;
+        }
+        .activation {
+            fill: #fff9e6;
+            stroke: #2c3e50;
+            stroke-width: 2;
+        }
+        .message-arrow {
+            stroke: #000;
+            stroke-width: 2;
+            fill: none;
+            marker-end: url(#arrowhead);
+        }
+        .return-arrow {
+            stroke: #666;
+            stroke-width: 1.5;
+            fill: none;
+            stroke-dasharray: 5,3;
+            marker-end: url(#arrowhead-return);
+        }
+        .label {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            fill: #000;
+            font-weight: 500;
+        }
+        .actor-label {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            fill: #000;
+            font-weight: bold;
+            text-anchor: middle;
+        }
+        .message-label {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            fill: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="diagram-container">
+        <h1>UML Sequence Diagram: Schedule Appointment Use Case</h1>
+        <p class="subtitle">DriverPass System - CS 255 System Analysis and Design</p>
+        
+        <svg viewBox="0 0 1300 1400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#000"/>
+                </marker>
+                <marker id="arrowhead-return" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#666"/>
+                </marker>
+            </defs>
+            
+            <!-- Actor: Customer -->
+            <circle cx="100" cy="40" r="20" stroke="#2c3e50" stroke-width="2" fill="none"/>
+            <line x1="100" y1="60" x2="100" y2="90" stroke="#2c3e50" stroke-width="2"/>
+            <line x1="100" y1="75" x2="70" y2="95" stroke="#2c3e50" stroke-width="2"/>
+            <line x1="100" y1="75" x2="130" y2="95" stroke="#2c3e50" stroke-width="2"/>
+            <line x1="100" y1="90" x2="70" y2="120" stroke="#2c3e50" stroke-width="2"/>
+            <line x1="100" y1="90" x2="130" y2="120" stroke="#2c3e50" stroke-width="2"/>
+            <text x="100" y="145" class="actor-label">Customer</text>
+            
+            <!-- Lifeline boxes -->
+            <rect x="50" y="160" width="100" height="40" class="lifeline"/>
+            <text x="100" y="185" class="actor-label">Customer</text>
+            
+            <rect x="300" y="160" width="120" height="40" class="lifeline"/>
+            <text x="360" y="178" class="actor-label">System</text>
+            <text x="360" y="192" class="actor-label">Interface</text>
+            
+            <rect x="550" y="160" width="120" height="40" class="lifeline"/>
+            <text x="610" y="178" class="actor-label">Application</text>
+            <text x="610" y="192" class="actor-label">Server</text>
+            
+            <rect x="800" y="160" width="100" height="40" class="lifeline"/>
+            <text x="850" y="185" class="actor-label">Database</text>
+            
+            <rect x="1050" y="160" width="100" height="40" class="lifeline"/>
+            <text x="1100" y="178" class="actor-label">Payment</text>
+            <text x="1100" y="192" class="actor-label">Gateway</text>
+            
+            <!-- Dashed lifelines -->
+            <line x1="100" y1="200" x2="100" y2="1350" class="lifeline-dashed"/>
+            <line x1="360" y1="200" x2="360" y2="1350" class="lifeline-dashed"/>
+            <line x1="610" y1="200" x2="610" y2="1350" class="lifeline-dashed"/>
+            <line x1="850" y1="200" x2="850" y2="1350" class="lifeline-dashed"/>
+            <line x1="1100" y1="200" x2="1100" y2="1350" class="lifeline-dashed"/>
+            
+            <!-- Message 1: Request to Schedule -->
+            <line x1="100" y1="240" x2="360" y2="240" class="message-arrow"/>
+            <text x="180" y="230" class="message-label">1: Request to Schedule Appointment</text>
+            
+            <!-- Activation box for System Interface -->
+            <rect x="350" y="240" width="20" height="900" class="activation"/>
+            
+            <!-- Message 2: Authenticate User -->
+            <line x1="370" y1="280" x2="610" y2="280" class="message-arrow"/>
+            <text x="420" y="270" class="message-label">2: Authenticate User</text>
+            
+            <!-- Activation box for Application Server -->
+            <rect x="600" y="280" width="20" height="860" class="activation"/>
+            
+            <!-- Message 3: Query User Credentials -->
+            <line x1="620" y1="320" x2="850" y2="320" class="message-arrow"/>
+            <text x="680" y="310" class="message-label">3: Query User Credentials</text>
+            
+            <!-- Activation box for Database -->
+            <rect x="840" y="320" width="20" height="40" class="activation"/>
+            
+            <!-- Return 4: Authentication Result -->
+            <line x1="840" y1="360" x2="620" y2="360" class="return-arrow"/>
+            <text x="680" y="350" class="message-label">4: Return Auth Confirmation</text>
+            
+            <!-- Return 5: Auth Confirmed -->
+            <line x1="600" y1="390" x2="370" y2="390" class="return-arrow"/>
+            <text x="430" y="380" class="message-label">5: Auth Confirmed</text>
+            
+            <!-- Message 6: Request Available Times -->
+            <line x1="370" y1="430" x2="610" y2="430" class="message-arrow"/>
+            <text x="420" y="420" class="message-label">6: Request Available Times</text>
+            
+            <!-- Message 7: Query Availability -->
+            <line x1="620" y1="470" x2="850" y2="470" class="message-arrow"/>
+            <text x="660" y="460" class="message-label">7: Query Driver, Vehicle, Appointment Availability</text>
+            
+            <!-- Activation box for Database -->
+            <rect x="840" y="470" width="20" height="40" class="activation"/>
+            
+            <!-- Return 8: Availability Data -->
+            <line x1="840" y1="510" x2="620" y2="510" class="return-arrow"/>
+            <text x="680" y="500" class="message-label">8: Return Availability Data</text>
+            
+            <!-- Return 9: Display Options -->
+            <line x1="600" y1="540" x2="370" y2="540" class="return-arrow"/>
+            <text x="430" y="530" class="message-label">9: Send Available Options</text>
+            
+            <!-- Return 10: Show Options -->
+            <line x1="350" y1="570" x2="100" y2="570" class="return-arrow"/>
+            <text x="180" y="560" class="message-label">10: Display Options to Customer</text>
+            
+            <!-- Message 11: Select Appointment -->
+            <line x1="100" y1="610" x2="360" y2="610" class="message-arrow"/>
+            <text x="150" y="600" class="message-label">11: Select Date, Time, Driver, Vehicle</text>
+            
+            <!-- Message 12: Validate Selection -->
+            <line x1="370" y1="650" x2="610" y2="650" class="message-arrow"/>
+            <text x="420" y="640" class="message-label">12: Validate Selection</text>
+            
+            <!-- Message 13: Check Conflicts -->
+            <line x1="620" y1="690" x2="850" y2="690" class="message-arrow"/>
+            <text x="680" y="680" class="message-label">13: Check for Scheduling Conflicts</text>
+            
+            <!-- Activation box for Database -->
+            <rect x="840" y="690" width="20" height="40" class="activation"/>
+            
+            <!-- Return 14: No Conflicts -->
+            <line x1="840" y1="730" x2="620" y2="730" class="return-arrow"/>
+            <text x="680" y="720" class="message-label">14: Return No Conflicts Found</text>
+            
+            <!-- Return 15: Validation Confirmed -->
+            <line x1="600" y1="760" x2="370" y2="760" class="return-arrow"/>
+            <text x="430" y="750" class="message-label">15: Validation Confirmed</text>
+            
+            <!-- Return 16: Request Payment -->
+            <line x1="350" y1="790" x2="100" y2="790" class="return-arrow"/>
+            <text x="180" y="780" class="message-label">16: Request Payment Information</text>
+            
+            <!-- Message 17: Enter Payment -->
+            <line x1="100" y1="830" x2="360" y2="830" class="message-arrow"/>
+            <text x="180" y="820" class="message-label">17: Enter Payment Details</text>
+            
+            <!-- Message 18: Process Payment -->
+            <line x1="370" y1="870" x2="610" y2="870" class="message-arrow"/>
+            <text x="430" y="860" class="message-label">18: Process Payment</text>
+            
+            <!-- Message 19: Submit to Gateway -->
+            <line x1="620" y1="910" x2="1100" y2="910" class="message-arrow"/>
+            <text x="780" y="900" class="message-label">19: Submit Payment to Gateway</text>
+            
+            <!-- Activation box for Payment Gateway -->
+            <rect x="1090" y="910" width="20" height="40" class="activation"/>
+            
+            <!-- Return 20: Payment Confirmed -->
+            <line x1="1090" y1="950" x2="620" y2="950" class="return-arrow"/>
+            <text x="780" y="940" class="message-label">20: Return Payment Confirmation</text>
+            
+            <!-- Message 21: Create Appointment -->
+            <line x1="620" y1="990" x2="850" y2="990" class="message-arrow"/>
+            <text x="680" y="980" class="message-label">21: Create Appointment Record</text>
+            
+            <!-- Activation box for Database -->
+            <rect x="840" y="990" width="20" height="40" class="activation"/>
+            
+            <!-- Return 22: Record Created -->
+            <line x1="840" y1="1030" x2="620" y2="1030" class="return-arrow"/>
+            <text x="680" y="1020" class="message-label">22: Return Record Created</text>
+            
+            <!-- Message 23: Generate Confirmation -->
+            <line x1="620" y1="1070" x2="850" y2="1070" class="message-arrow"/>
+            <text x="680" y="1060" class="message-label">23: Log Activity</text>
+            
+            <!-- Activation box for Database -->
+            <rect x="840" y="1070" width="20" height="40" class="activation"/>
+            
+            <!-- Return 24: Logged -->
+            <line x1="840" y1="1110" x2="620" y2="1110" class="return-arrow"/>
+            <text x="700" y="1100" class="message-label">24: Activity Logged</text>
+            
+            <!-- Return 25: Confirmation Details -->
+            <line x1="600" y1="1140" x2="370" y2="1140" class="return-arrow"/>
+            <text x="430" y="1130" class="message-label">25: Send Confirmation Details</text>
+            
+            <!-- Return 26: Display Confirmation -->
+            <line x1="350" y1="1170" x2="100" y2="1170" class="return-arrow"/>
+            <text x="180" y="1160" class="message-label">26: Display Confirmation to Customer</text>
+            
+            <!-- Message 27: Send Email -->
+            <line x1="610" y1="1210" x2="850" y2="1210" class="message-arrow"/>
+            <text x="660" y="1200" class="message-label">27: Send Confirmation Email to Customer</text>
+            
+            <!-- Activation box for Database -->
+            <rect x="840" y="1210" width="20" height="40" class="activation"/>
+            
+            <!-- Message 28: Notify Driver -->
+            <line x1="610" y1="1270" x2="850" y2="1270" class="message-arrow"/>
+            <text x="660" y="1260" class="message-label">28: Send Notification to Driver</text>
+            
+            <!-- Activation box for Database -->
+            <rect x="840" y="1270" width="20" height="40" class="activation"/>
+            
+        </svg>
+        
+        <div style="margin-top: 30px; padding: 20px; background: #f9f9f9; border: 1px solid #ddd;">
+            <h3 style="margin-top: 0; color: #333;">Sequence Diagram Description</h3>
+            <p style="line-height: 1.6; margin: 0;">
+                This sequence diagram illustrates the temporal interactions between system components during the appointment scheduling process. The diagram shows five participants: Customer, System Interface, Application Server, Database, and Payment Gateway. The sequence begins with the customer requesting to schedule an appointment. The system authenticates the user by querying the database for credentials. Upon successful authentication, the system retrieves available appointment times by checking driver, vehicle, and existing appointment availability in the database. Available options are displayed to the customer who selects their preferred date, time, driver, and vehicle. The system validates the selection by checking for scheduling conflicts in the database. After validation, the customer enters payment information which is processed through an external payment gateway. Upon payment confirmation, the application server creates the appointment record in the database, logs the activity, and generates confirmation details. The system displays the confirmation to the customer and sends email notifications to both the customer and the assigned driver. The vertical dashed lines represent lifelines showing each participant's existence over time, while activation boxes show when each participant is actively processing. Solid arrows represent synchronous messages, and dashed arrows represent return messages or responses.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

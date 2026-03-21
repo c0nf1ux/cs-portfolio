@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UML Activity Diagram - Take Online Practice Test</title>
+    <style>
+        @media print {
+            body {
+                margin: 0;
+                padding: 10px;
+            }
+            .diagram-container {
+                box-shadow: none;
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: white;
+            margin: 0;
+        }
+        .diagram-container {
+            background: white;
+            padding: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 24px;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        svg {
+            width: 100%;
+            height: auto;
+            border: 2px solid #333;
+        }
+        .action {
+            fill: #e8f4f8;
+            stroke: #2c3e50;
+            stroke-width: 2;
+        }
+        .decision {
+            fill: #fff9e6;
+            stroke: #2c3e50;
+            stroke-width: 2;
+        }
+        .start-end {
+            fill: #2c3e50;
+            stroke: #2c3e50;
+            stroke-width: 2;
+        }
+        .flow-arrow {
+            stroke: #000;
+            stroke-width: 2;
+            fill: none;
+            marker-end: url(#arrowhead);
+        }
+        .label {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            fill: #000;
+            font-weight: 500;
+            text-anchor: middle;
+        }
+        .label-small {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            fill: #000;
+            text-anchor: middle;
+        }
+        .decision-label {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            fill: #000;
+            font-weight: 500;
+            text-anchor: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="diagram-container">
+        <h1>UML Activity Diagram: Take Online Practice Test Use Case</h1>
+        <p class="subtitle">DriverPass System - CS 255 System Analysis and Design</p>
+        
+        <svg viewBox="0 0 800 1700" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#000"/>
+                </marker>
+            </defs>
+            
+            <!-- Start node -->
+            <circle cx="400" cy="50" r="20" class="start-end"/>
+            <text x="400" y="90" class="label">Start</text>
+            
+            <!-- Customer Login -->
+            <rect x="300" y="110" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="145" class="label">Customer Login</text>
+            
+            <!-- Navigate to Practice Tests -->
+            <rect x="300" y="200" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="223" class="label">Navigate to Online</text>
+            <text x="400" y="238" class="label">Practice Tests Section</text>
+            
+            <!-- Verify Package Access -->
+            <rect x="300" y="290" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="313" class="label">Verify Customer Has</text>
+            <text x="400" y="328" class="label">Package Three Access</text>
+            
+            <!-- Flow from Start to Login -->
+            <line x1="400" y1="70" x2="400" y2="110" class="flow-arrow"/>
+            
+            <!-- Flow from Login to Navigate -->
+            <line x1="400" y1="170" x2="400" y2="200" class="flow-arrow"/>
+            
+            <!-- Flow from Navigate to Verify -->
+            <line x1="400" y1="260" x2="400" y2="290" class="flow-arrow"/>
+            
+            <!-- Decision: Has Access? -->
+            <polygon points="400,380 500,430 400,480 300,430" class="decision"/>
+            <text x="400" y="428" class="decision-label">Has Online</text>
+            <text x="400" y="442" class="decision-label">Test Access?</text>
+            
+            <!-- Flow from Verify to Decision -->
+            <line x1="400" y1="350" x2="400" y2="380" class="flow-arrow"/>
+            
+            <!-- No path - Display Access Denied -->
+            <line x1="300" y1="430" x2="150" y2="430" class="flow-arrow"/>
+            <text x="220" y="420" class="label-small">No</text>
+            
+            <rect x="50" y="400" width="200" height="60" rx="30" class="action"/>
+            <text x="150" y="423" class="label">Display Access Denied</text>
+            <text x="150" y="438" class="label">Message</text>
+            
+            <!-- Flow to End from Access Denied -->
+            <line x1="150" y1="460" x2="150" y2="1600" class="flow-arrow"/>
+            <line x1="150" y1="1600" x2="350" y2="1600" class="flow-arrow"/>
+            
+            <!-- Yes path - Display Available Tests -->
+            <line x1="500" y1="430" x2="600" y2="430" class="flow-arrow"/>
+            <text x="550" y="420" class="label-small">Yes</text>
+            <line x1="600" y1="430" x2="600" y2="540" class="flow-arrow"/>
+            <line x1="600" y1="540" x2="500" y2="540" class="flow-arrow"/>
+            
+            <!-- Display Available Tests -->
+            <rect x="300" y="510" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="533" class="label">Display Available</text>
+            <text x="400" y="548" class="label">Practice Tests by Topic</text>
+            
+            <!-- Customer Selects Test -->
+            <rect x="300" y="600" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="635" class="label">Customer Selects Test</text>
+            
+            <!-- Flow from Display to Select -->
+            <line x1="400" y1="570" x2="400" y2="600" class="flow-arrow"/>
+            
+            <!-- Retrieve Test Questions -->
+            <rect x="300" y="690" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="713" class="label">Retrieve Questions from</text>
+            <text x="400" y="728" class="label">DMV-Synced Database</text>
+            
+            <!-- Flow from Select to Retrieve -->
+            <line x1="400" y1="660" x2="400" y2="690" class="flow-arrow"/>
+            
+            <!-- Display Question -->
+            <rect x="300" y="780" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="815" class="label">Display Question</text>
+            
+            <!-- Flow from Retrieve to Display -->
+            <line x1="400" y1="750" x2="400" y2="780" class="flow-arrow"/>
+            
+            <!-- Customer Answers Question -->
+            <rect x="300" y="870" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="893" class="label">Customer Selects</text>
+            <text x="400" y="908" class="label">Answer Option</text>
+            
+            <!-- Flow from Display to Answer -->
+            <line x1="400" y1="840" x2="400" y2="870" class="flow-arrow"/>
+            
+            <!-- Record Answer -->
+            <rect x="300" y="960" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="995" class="label">Record Answer</text>
+            
+            <!-- Flow from Answer to Record -->
+            <line x1="400" y1="930" x2="400" y2="960" class="flow-arrow"/>
+            
+            <!-- Decision: More Questions? -->
+            <polygon points="400,1050 500,1100 400,1150 300,1100" class="decision"/>
+            <text x="400" y="1098" class="decision-label">More</text>
+            <text x="400" y="1112" class="decision-label">Questions?</text>
+            
+            <!-- Flow from Record to Decision -->
+            <line x1="400" y1="1020" x2="400" y2="1050" class="flow-arrow"/>
+            
+            <!-- Yes path - Loop back to Display Question -->
+            <line x1="300" y1="1100" x2="200" y2="1100" class="flow-arrow"/>
+            <text x="245" y="1090" class="label-small">Yes</text>
+            
+            <line x1="200" y1="1100" x2="200" y2="810" class="flow-arrow"/>
+            <line x1="200" y1="810" x2="300" y2="810" class="flow-arrow"/>
+            
+            <!-- No path - Calculate Score -->
+            <line x1="500" y1="1100" x2="600" y2="1100" class="flow-arrow"/>
+            <text x="550" y="1090" class="label-small">No</text>
+            <line x1="600" y1="1100" x2="600" y2="1230" class="flow-arrow"/>
+            <line x1="600" y1="1230" x2="500" y2="1230" class="flow-arrow"/>
+            
+            <!-- Calculate Score -->
+            <rect x="300" y="1200" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="1223" class="label">Calculate Score and</text>
+            <text x="400" y="1238" class="label">Determine Pass/Fail</text>
+            
+            <!-- Display Results -->
+            <rect x="300" y="1290" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="1313" class="label">Display Score, Time,</text>
+            <text x="400" y="1328" class="label">and Status to Customer</text>
+            
+            <!-- Flow from Calculate to Display -->
+            <line x1="400" y1="1260" x2="400" y2="1290" class="flow-arrow"/>
+            
+            <!-- Store Test Results -->
+            <rect x="300" y="1380" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="1403" class="label">Store Results in</text>
+            <text x="400" y="1418" class="label">Customer Profile</text>
+            
+            <!-- Flow from Display to Store -->
+            <line x1="400" y1="1350" x2="400" y2="1380" class="flow-arrow"/>
+            
+            <!-- Update Test Progress Tracking -->
+            <rect x="300" y="1470" width="200" height="60" rx="30" class="action"/>
+            <text x="400" y="1493" class="label">Update Test Progress</text>
+            <text x="400" y="1508" class="label">Dashboard</text>
+            
+            <!-- Flow from Store to Update -->
+            <line x1="400" y1="1440" x2="400" y2="1470" class="flow-arrow"/>
+            
+            <!-- Flow to End -->
+            <line x1="400" y1="1530" x2="400" y2="1580" class="flow-arrow"/>
+            
+            <!-- End node -->
+            <circle cx="400" cy="1600" r="20" class="start-end"/>
+            <circle cx="400" cy="1600" r="15" fill="white"/>
+            <text x="400" y="1640" class="label">End</text>
+        </svg>
+        
+        <div style="margin-top: 30px; padding: 20px; background: #f9f9f9; border: 1px solid #ddd;">
+            <h3 style="margin-top: 0; color: #333;">Activity Diagram Description</h3>
+            <p style="line-height: 1.6; margin: 0;">
+                This activity diagram illustrates the workflow for customers taking online practice tests in the DriverPass system. The process begins with customer login and navigation to the practice test section. The system verifies the customer has Package Three access, which includes online test privileges. Upon verification, available tests categorized by topic are displayed. The customer selects a test, and the system retrieves questions from the DMV-synchronized database. Questions are presented one at a time with the customer selecting answers. After all questions are answered, the system calculates the score, determines pass or fail status based on DMV requirements, displays results to the customer, stores the results in the customer profile, and updates the test progress dashboard for future reference.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
